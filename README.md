@@ -2,7 +2,9 @@
 
 Тестовое задание: небольшое Flutter-приложение для просмотра и поиска персонажей вселенной Rick and Morty. Данные берутся из публичного [Rick and Morty API](https://rickandmortyapi.com/documentation).
 
-<video src="mobile/app/docs/1.mov" controls width="100%"></video>
+![Демо](mobile/app/docs/1.gif)
+
+[Полное видео](mobile/app/docs/1.mov)
 
 ## Что сделано
 
