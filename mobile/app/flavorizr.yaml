@@ -1,0 +1,99 @@
+# CLI: flutter pub run flutter_flavorizr -f  
+# Spell: ignore agconnect xcconfig podfile flavorizr
+
+instructions:
+  # Скачать все assets, в том числе и шаблонные dart файлы, иконки, скрипты и т.д. Скорее всего, это обязательная опция
+  - assets:download
+  - assets:extract
+
+  - android:androidManifest
+  - android:flavorizrGradle
+  - android:buildGradle
+
+  # Эти опции могут быть не нужны - используем другой генератор
+  # - android:dummyAssets
+  # - android:icons
+
+  # Создать app.dart, flavors.dart, main.dart, pages.dart. Скорее всего, проще всего редактировать все вручную
+  # - flutter:flavors
+  # - flutter:app
+  # - flutter:main
+  # - flutter:pages
+
+  # CocoaPods is unused; this project uses Swift Package Manager.
+  # - ios:podfile
+  - ios:xcconfig
+  - ios:buildTargets
+  - ios:schema
+
+  # Эти опции могут быть не нужны - используем другой генератор
+  # Важно что тут генерируются несовместимые имена, требуется последующая ручная правка проекта
+  # - ios:dummyAssets
+  # - ios:icons
+
+  - ios:plist
+
+  # Эти опции могут быть не нужны - используем другой генератор
+  # - ios:launchScreen
+
+  # - google:firebase
+  # - huawei:agconnect
+
+  # Почистить все скачанные assets
+  - assets:clean
+
+  # Creates a vscode launch.json file!
+  # - ide:config
+
+ide: "vscode"
+
+app:
+  android:
+    flavorDimensions: "flavor-type"
+
+flavors:
+  dev:
+    app:
+      name: "Rick and Morty App Dev"
+
+    android:
+      applicationId: "com.kakabaev.rick_morty_app.dev"
+      customConfig:
+        signingConfig: signingConfigs.getByName("dev")
+
+    ios:
+      bundleId:
+        "com.kakabaev.rick_morty_app.dev"
+        #   variables:
+        #     VARIABLE_ONE:
+        #       value: "variable1"
+        #     VARIABLE_TWO:
+        #       target: "debug"
+        #       value: "variable2"
+
+  stage:
+    app:
+      name: "Rick and Morty App Stage"
+
+    android:
+      applicationId: "com.kakabaev.rick_morty_app.stage"
+      customConfig:
+        signingConfig: signingConfigs.getByName("stage")
+
+    ios:
+      bundleId: "com.kakabaev.rick_morty_app.stage"
+
+  prod:
+    app:
+      name: "Rick and Morty App"
+
+    android:
+      applicationId: "com.kakabaev.rick_morty_app"
+      customConfig:
+        # versionNameSuffix: "\"-green-prod\"" # Don't forget to escape strings with \"
+        signingConfig: signingConfigs.getByName("prod")
+        # versionCode: 1000
+        # minSdkVersion: 23
+        # ..... and any custom property you want to add
+    ios:
+      bundleId: "com.kakabaev.rick_morty_app"

@@ -1,0 +1,18 @@
+# flutter pub run flutter_launcher_icons
+# cspell: disable
+
+flutter_launcher_icons:
+  ios: true
+  image_path_ios: "assets/app_icons/dev/app_icon_ios_dev.png"
+  image_path_ios_dark_transparent: "assets/app_icons/dev/app_icon_ios_dark_dev.png"
+  image_path_ios_tinted_grayscale: "assets/app_icons/dev/app_icon_ios_tinted_dev.png"
+  desaturate_tinted_to_grayscale_ios: true
+  remove_alpha_ios: true
+
+  android: "ic_launcher"
+  image_path_android: "assets/app_icons/dev/app_icon_android_legacy_dev.png"
+  adaptive_icon_monochrome: "assets/app_icons/dev/app_icon_android_mono_dev.png"
+  adaptive_icon_foreground: "assets/app_icons/dev/app_icon_android_adaptive_dev.png" # only available for Android 8.0 devices and above
+  adaptive_icon_background: "#FFFFFF" # only available for Android 8.0 devices and above
+  adaptive_icon_foreground_inset: 0 # only available for Android 8.0 devices and above
+  min_sdk_android: 23

@@ -1,0 +1,21 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Rick and Morty App",
+  "characters": "R & M Персонажи",
+  "searchCharacters": "Поиск по имени",
+  "noCharacters": "Персонажи не найдены",
+  "noCharactersMatch": "Нет персонажей по запросу «{query}»",
+  "clearSearch": "Очистить поиск",
+  "characterStatus": "Статус",
+  "species": "Вид",
+  "origin": "Происхождение",
+  "location": "Локация",
+  "somethingWentWrong": "Что-то пошло не так",
+  "retry": "Повторить",
+  "oops": "Упс!",
+  "unableToOpen": "Не удалось открыть {uri}",
+  "goHome": "На главную",
+  "noInternet": "Нет подключения к интернету",
+  "imageNotFound": "Изображение не найдено",
+  "imageNotLoaded": "Не удалось загрузить изображение"
+}

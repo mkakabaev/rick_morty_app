@@ -1,0 +1,5 @@
+#include "Generated.xcconfig"
+
+ASSET_PREFIX=dev
+BUNDLE_NAME=Rick and Morty App Dev
+BUNDLE_DISPLAY_NAME=Rick and Morty App Dev

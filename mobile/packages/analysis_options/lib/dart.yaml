@@ -1,0 +1,83 @@
+# cSpell: disable
+include: package:lints/recommended.yaml
+
+formatter:
+  page_width: 120
+
+linter:
+  rules:
+    cancel_subscriptions: true
+    close_sinks: true
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    discarded_futures: true
+    unawaited_futures: true
+    unnecessary_await_in_return: true
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+dcm:
+  rules:
+    - avoid-assignments-as-conditions
+    - avoid-cascade-after-if-null
+    - avoid-casting-to-extension-type
+    - avoid-collection-methods-with-unrelated-types
+    - avoid-commented-out-code: false
+    - avoid-conditions-with-boolean-literals
+    - avoid-double-slash-imports
+    - avoid-duplicate-exports
+    - avoid-duplicate-mixins
+    - avoid-duplicate-named-imports
+    - avoid-duplicate-test-assertions: false
+    - avoid-dynamic
+    - avoid-empty-spread
+    - avoid-explicit-pattern-field-name
+    - avoid-generics-shadowing
+    - avoid-global-state
+    - avoid-incomplete-copy-with: false
+    - avoid-late-keyword: false
+    - avoid-missed-calls
+    - avoid-misused-set-literals
+    - avoid-nested-conditional-expressions
+    - avoid-nested-records
+    - avoid-non-null-assertion
+    - avoid-nullable-tostring
+    - avoid-passing-async-when-sync-expected: false
+    - avoid-passing-self-as-argument
+    - avoid-redundant-async
+    - avoid-self-assignment
+    - avoid-self-compare
+    - avoid-substring
+    - avoid-throw-in-catch-block
+    - avoid-top-level-members-in-tests: false
+    - avoid-unnecessary-conditionals
+    - avoid-unnecessary-type-assertions
+    - avoid-unnecessary-type-casts
+    - avoid-unrelated-type-assertions
+    - avoid-unused-parameters
+    - binary-expression-operand-order
+    - check-is-not-closed-after-async-gap
+    - double-literal-format
+    - member-ordering: false
+    - missing-test-assertion
+    - newline-before-return: false
+    - no-boolean-literal-compare
+    - no-equal-then-else
+    - no-magic-number: false
+    - prefer-async-await
+    - prefer-commenting-analyzer-ignores: false
+    - prefer-conditional-expressions: false
+    - prefer-correct-test-file-name
+    - prefer-enums-by-name
+    - prefer-extracting-callbacks: false
+    - prefer-first
+    - prefer-immediate-return
+    - prefer-iterable-of
+    - prefer-last
+    - prefer-match-file-name: false
+    - prefer-moving-to-variable: false
+    - prefer-static-class: false

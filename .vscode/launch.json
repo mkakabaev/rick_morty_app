@@ -1,0 +1,108 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Dev",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "dev",
+            ],
+            "cwd": "${workspaceFolder}/mobile/app",
+        },
+        {
+            "name": "Dev Release",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "dev",
+                "--release",
+            ],
+            "cwd": "${workspaceFolder}/mobile/app",
+        },
+        {
+            "name": "Dev Profile",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "dev",
+            ],
+            "cwd": "${workspaceFolder}/mobile/app",
+        },
+        {
+            "name": "Stage",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "stage",
+            ],
+            "cwd": "${workspaceFolder}/mobile/app",
+        },
+        {
+            "name": "Stage Release",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "stage",
+                "--release",
+            ],
+            "cwd": "${workspaceFolder}/mobile/app",
+        },
+        {
+            "name": "Stage Profile",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "stage",
+                "--profile",
+            ],
+            "cwd": "${workspaceFolder}/mobile/app",
+        },
+        {
+            "name": "Prod",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "prod"
+            ],
+            "cwd": "${workspaceFolder}/mobile/app",
+        },
+        {
+            "name": "Prod Release",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "prod",
+                "--release",
+            ],
+            "cwd": "${workspaceFolder}/mobile/app",
+        },
+        {
+            "name": "Integration tests",
+            "type": "dart",
+            "request": "launch",
+            "templateFor": "mobile/app/integration_test",
+            "cwd": "${workspaceFolder}/mobile/app",
+            "toolArgs": [
+                "--flavor",
+                "dev"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+name: core
+description: App kernel primitives — errors, results, logging, analytics, streams, validation, isolates.
+publish_to: none
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  async: ^2.13.0
+  equatable: ^2.0.7
+  rxdart: ^0.28.0
+
+dev_dependencies:
+  analysis_options:
+    path: ../analysis_options
+  test: ^1.25.0

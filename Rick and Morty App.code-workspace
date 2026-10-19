@@ -1,0 +1,70 @@
+// cSpell:  disable
+{
+    "folders": [
+        {
+            "name": "Rick and Morty App",
+            "path": "."
+        }
+    ],
+    "settings": {
+        "task.allowAutomaticTasks": "on",
+        "markdown.validate.enabled": true,
+        "markdown.validate.fileLinks.enabled": "warning",
+        "markdown.validate.fragmentLinks.enabled": "warning",
+        "terminal.integrated.cwd": "${workspaceFolder}/mobile/app",
+        "search.exclude": {
+            ".venv/lib": true,
+            "**/backend/.venv": true,
+            "**/mobile/app/build": true,
+            "**/.dart_tool": true,
+            "**/.github-runner": true,
+        },
+        "files.exclude": {
+            "**/.idea": true,
+        },
+        "cSpell.ignorePaths": [
+            "**/*.g.dart"
+        ],
+        "cSpell.words": [
+            "Morty",
+            "Rick",
+            "rickandmortyapi",
+        ],
+        "dartimportsorter.sortOnSave": false,
+        "dartimportsorter.leaveEmptyLinesBetweenGroups": true,
+        "dartimportsorter.matchingRules": [
+            {
+                "label": "Dart",
+                "regex": "^dart:.*$",
+                "order": 1,
+                "regexFlags": [
+                    "m"
+                ]
+            },
+            {
+                "label": "Package imports that are NOT app/core",
+                "regex": "^package:(?!(?:app|core)/).*$",
+                "order": 100,
+                "regexFlags": [
+                    "m"
+                ]
+            },
+            {
+                "label": "Package imports that ARE app/core",
+                "regex": "^package:(?:app|core)/.*$",
+                "order": 101,
+                "regexFlags": [
+                    "m"
+                ]
+            },
+            {
+                "label": "Relative",
+                "regex": "^\\..*$",
+                "order": 1000,
+                "regexFlags": [
+                    "m"
+                ]
+            }
+        ],
+    }
+}

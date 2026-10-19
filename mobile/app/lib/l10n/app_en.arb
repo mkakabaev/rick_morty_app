@@ -1,0 +1,35 @@
+{
+  "@@locale": "en",
+  "appTitle": "Rick and Morty App",
+  "characters": "R & M Characters",
+  "searchCharacters": "Search by name",
+  "noCharacters": "No characters found",
+  "noCharactersMatch": "No characters match \"{query}\"",
+  "@noCharactersMatch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "clearSearch": "Clear search",
+  "characterStatus": "Status",
+  "species": "Species",
+  "origin": "Origin",
+  "location": "Location",
+  "somethingWentWrong": "Something went wrong",
+  "retry": "Retry",
+  "oops": "Oops!",
+  "unableToOpen": "Unable to open {uri}",
+  "@unableToOpen": {
+    "placeholders": {
+      "uri": {
+        "type": "String"
+      }
+    }
+  },
+  "goHome": "Go home",
+  "noInternet": "No internet connection",
+  "imageNotFound": "Image not found",
+  "imageNotLoaded": "Couldn't load image"
+}

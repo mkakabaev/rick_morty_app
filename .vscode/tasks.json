@@ -1,0 +1,85 @@
+// see icons and labale here: https://code.visualstudio.com/api/references/icons-in-labels
+{
+    "version": "2.0.0",
+    "inputs": [
+        {
+            "id": "featureName",
+            "type": "promptString",
+            "description": "Feature branch name (without feat/)",
+        },
+    ],
+    "tasks": [
+        {
+            "label": "BuildRunner + Format",
+            "dependsOn": [
+                "BuildRunner build",
+                "Format project",
+            ],
+            "dependsOrder": "sequence",
+            "type": "shell",
+            "problemMatcher": []
+        },
+        {
+            "label": "Format project",
+            "type": "shell",
+            "command": "zsh",
+            "args": [
+                "scripts/format.zsh"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/mobile"
+            },
+            "presentation": {
+                "panel": "dedicated",
+                "showReuseMessage": false,
+            }
+        },
+        {
+            "label": "BuildRunner build",
+            "type": "shell",
+            "command": "dart",
+            "args": [
+                "run",
+                "build_runner",
+                "build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/mobile/app"
+            },
+            "presentation": {
+                "panel": "dedicated",
+                "showReuseMessage": false,
+            }
+        },
+        {
+            "label": "BuildRunner clean",
+            "type": "shell",
+            "command": "dart",
+            "args": [
+                "run",
+                "build_runner",
+                "clean"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/mobile/app"
+            },
+            "presentation": {
+                "panel": "dedicated",
+                "showReuseMessage": true,
+            }
+        },
+        {
+            "label": "Build App Icons",
+            "type": "shell",
+            "command": "dart run flutter_launcher_icons",
+            "options": {
+                "cwd": "${workspaceFolder}/mobile/app"
+            },
+            "presentation": {
+                "panel": "dedicated",
+                "showReuseMessage": false,
+            },
+            "problemMatcher": []
+        },
+    ]
+}

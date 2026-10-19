@@ -1,0 +1,38 @@
+---
+description: Use Dart enum dot shorthand (.member) when the enum type is already known. Use when writing or editing enum references.
+globs: mobile/app/**/*.dart,mobile/packages/**/*.dart
+alwaysApply: false
+---
+
+# Dart enum shorthand
+
+When the expected type is already an enum, write `.member` instead of `EnumName.member`.
+
+Applies to arguments, return values, assignments with an explicit enum type, switch cases, and enum statics such as `.values`.
+
+```dart
+// ❌ BAD
+apply(Flavor.dev);
+final Flavor flavor = Flavor.stage;
+switch (flavor) {
+  Flavor.dev => 'dev',
+  Flavor.stage => 'stage',
+  Flavor.prod => 'prod',
+}
+localStoreEngine: LocalStoreEngine.values.byName(raw),
+
+// ✅ GOOD
+apply(.dev);
+final Flavor flavor = .stage;
+switch (flavor) {
+  .dev => 'dev',
+  .stage => 'stage',
+  .prod => 'prod',
+}
+localStoreEngine: .values.byName(raw),
+```
+
+Notes:
+
+- Keep `EnumName.member` when there is no type context (`final flavor = Flavor.dev`).
+- Do not rewrite generated files (`*.g.dart`, `*.gen.dart`, `*.freezed.dart`) to apply this.

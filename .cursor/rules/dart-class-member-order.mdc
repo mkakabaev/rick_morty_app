@@ -1,0 +1,52 @@
+---
+description: Dart class member declaration order (fields before constructor). Use when writing or editing Dart classes.
+globs: mobile/app/**/*.dart,mobile/packages/**/*.dart
+alwaysApply: false
+---
+
+# Dart class member order
+
+Declare class members in this order. Do not put the constructor above fields.
+
+1. **Static** constants / fields / methods (if any)
+2. **Instance fields** (including `late` / `final` / private)
+3. **Getters / props** (e.g. `logName`, `valueStream`, Equatable `props`)
+4. **Constructors** (generative, then named / factory)
+5. **`dispose` / `close`** (last among methods)
+6. **Public methods**
+7. **Private methods**
+
+```dart
+// ✅ GOOD
+class CommentsRepositoryImpl {
+  final ApiClient _apiClient;
+  final LocalStore _localStore;
+  final _sessions = <int, _CommentsSession>{};
+
+  UserId? get activeUserId => _activeUserId;
+
+  CommentsRepositoryImpl(this._apiClient, this._localStore, ObserveMyUserUseCase observeMyUser) {
+    // ...
+  }
+
+  Future<void> dispose() async { /* ... */ }
+
+  ValueStream<ValueState<Comments>> commentsForPost(int postId) => /* ... */;
+
+  Future<void> _clearSessions() async { /* ... */ }
+}
+
+// ❌ BAD — constructor before fields
+class CommentsRepositoryImpl {
+  CommentsRepositoryImpl(this._apiClient, this._localStore) { /* ... */ }
+
+  final ApiClient _apiClient;
+  final LocalStore _localStore;
+}
+```
+
+Notes:
+
+- Initializing formal parameters (`this._apiClient`) are fine; the **field declarations** still sit above the constructor body.
+- `late final` fields that are assigned in the constructor are still **declared** above it.
+- Prefer matching this order in new code and when touching a class; do not mass-reorder unrelated files in the same change.
