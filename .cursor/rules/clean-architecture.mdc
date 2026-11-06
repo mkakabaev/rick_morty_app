@@ -1,0 +1,7 @@
+---
+description: Feature-module Clean Architecture for this app. Use when editing features, use cases, repositories, services, barrels, or reviewing architecture / CA / layering.
+globs: mobile/app/lib/**/*.dart
+alwaysApply: false
+---
+
+Follow [Clean architecture](/mobile/app/docs/clean-architecture.md). Do not invent a second CA model.

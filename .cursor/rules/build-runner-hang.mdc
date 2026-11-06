@@ -1,0 +1,16 @@
+---
+description: Recover from hung Dart build_runner by killing, cleaning, then restarting. Use when build_runner or codegen hangs, stalls, or is restarted after a kill.
+alwaysApply: true
+---
+
+# Hung build_runner recovery
+
+`dart run build_runner` in `mobile/app` often hangs. Do not restart it immediately after a kill.
+
+Recovery order (from `mobile/app`):
+
+1. Kill the hung `build_runner` / `dart` process.
+2. Clean generated build state: `dart run build_runner clean`
+3. Restart: `dart run build_runner build --delete-conflicting-outputs` (or `watch` if that was the original command)
+
+Never skip step 2 after a hang or forced kill. A clean restart avoids repeated hangs from stale build caches.

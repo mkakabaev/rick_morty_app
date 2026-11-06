@@ -1,0 +1,5 @@
+#include "Generated.xcconfig"
+
+ASSET_PREFIX=prod
+BUNDLE_NAME=Rick and Morty App
+BUNDLE_DISPLAY_NAME=Rick and Morty App

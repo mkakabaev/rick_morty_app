@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Analyze, format, test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read pinned Flutter version
+        id: flutter
+        run: echo "version=$(python3 -c 'import json; print(json.load(open("mobile/app/.fvmrc"))["flutter"])')" >> "$GITHUB_OUTPUT"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.flutter.outputs.version }}
+          channel: stable
+          cache: true
+
+      - name: Install zsh (scripts)
+        run: sudo apt-get update -q && sudo apt-get install -y -q zsh
+
+      - name: Pub get (all packages)
+        run: zsh mobile/scripts/pub_get.zsh
+
+      - name: Format check
+        run: zsh mobile/scripts/format.zsh --check
+
+      - name: Analyze app
+        working-directory: mobile/app
+        run: flutter analyze --no-pub
+
+      - name: Analyze core
+        working-directory: mobile/packages/core
+        run: dart analyze --fatal-infos
+
+      - name: Test app
+        working-directory: mobile/app
+        run: flutter test --no-pub
+
+      - name: Test core
+        working-directory: mobile/packages/core
+        run: dart test
