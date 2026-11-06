@@ -1,0 +1,19 @@
+# cSpell: disable
+
+.DS_Store
+.idea
+*.pyc
+
+# Secrets
+/mobile/other/secrets/android/keystores
+/mobile/other/secrets/firebase/distribution_token.txt
+/mobile/other/secrets/firebase/*.json
+
+# CI temp (e.g. Firebase SA JSON written by Actions)
+/.ci/
+
+## Testing cloning:
+/scripts/_clone_test.zsh
+
+# Builds
+/mobile/builds/out

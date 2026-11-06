@@ -1,0 +1,48 @@
+# cSpell: disable
+
+include:
+  - package:analysis_options/dart.yaml
+  - package:flutter_lints/flutter.yaml
+
+dcm:
+  rules:
+    - always-remove-listener
+    - avoid-bloc-public-fields
+    - avoid-bloc-public-methods
+    - avoid-border-all
+    - avoid-cubits: false
+    - avoid-duplicate-bloc-event-handlers
+    - avoid-empty-build-when
+    - avoid-existing-instances-in-bloc-provider
+    - avoid-expanded-as-spacer
+    - avoid-incorrect-image-opacity
+    - avoid-instantiating-in-bloc-value-provider
+    - avoid-passing-bloc-to-bloc
+    - avoid-passing-build-context-to-blocs
+    - avoid-returning-value-from-cubit-methods
+    - avoid-returning-widgets: false
+    - avoid-shrink-wrap-in-lists
+    - avoid-unnecessary-setstate
+    - avoid-unnecessary-stateful-widgets
+    - avoid-wrapping-in-padding
+    - check-for-equals-in-render-object-setters
+    - consistent-update-render-object
+    - emit-new-bloc-state-instances
+    - handle-bloc-event-subclasses
+    - prefer-bloc-event-suffix
+    - prefer-bloc-extensions
+    - prefer-bloc-state-suffix
+    - prefer-const-border-radius
+    - prefer-correct-bloc-provider
+    - prefer-correct-edge-insets-constructor: false
+    - prefer-define-hero-tag
+    - prefer-immutable-bloc-events
+    - prefer-immutable-bloc-state
+    - prefer-multi-bloc-provider
+    - prefer-sealed-bloc-events
+    - prefer-sealed-bloc-state
+    - prefer-single-widget-per-file: false
+    - prefer-text-rich
+    - prefer-using-list-view
+    - provide-image-semantic-label: false
+    - use-setstate-synchronously

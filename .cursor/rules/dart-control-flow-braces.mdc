@@ -1,0 +1,44 @@
+---
+description: Require curly braces around all Dart control-flow bodies (if/else/for/while/do). Use when writing or editing Dart control flow.
+globs: mobile/app/**/*.dart,mobile/packages/**/*.dart
+alwaysApply: false
+---
+
+# Dart control-flow braces
+
+Always surround control-flow bodies with `{ }`. Never use a single statement or expression as a bare body.
+
+Applies to: `if`, `else`, `for`, `while`, `do`, and similar flow constructs.
+
+```dart
+// ❌ BAD — bare single statement
+if (user == null) return;
+for (final id in ids) process(id);
+while (queue.isNotEmpty) queue.removeFirst();
+
+// ❌ BAD — bare expression body
+if (ok) doWork();
+else handleError();
+
+// ✅ GOOD
+if (user == null) {
+  return;
+}
+for (final id in ids) {
+  process(id);
+}
+while (queue.isNotEmpty) {
+  queue.removeFirst();
+}
+if (ok) {
+  doWork();
+} else {
+  handleError();
+}
+```
+
+Notes:
+
+- Braces are required even when the body is one line.
+- Do not “save” a line by omitting `{ }` on `if` / `else` / loops.
+- Collection / cascade / expression syntax elsewhere is fine; this rule is only about control-flow bodies.

@@ -1,0 +1,43 @@
+---
+description: Use core CWValue for nullable fields in hand-written copyWith methods. Use when writing or editing copyWith with a nullable field.
+alwaysApply: false
+---
+
+# copyWith nullable fields
+
+For a nullable field, a plain `T?` argument cannot tell "omitted" from "set to null". Use `CWValue<T>` from `package:core/core.dart`. `T` is the non-null field type (`CWValue<String>`, not `CWValue<String?>`).
+
+Do not declare a local `CWValue`. Resolve with `CWValue.resolve`. Non-nullable fields stay `T?` with `?? this.field`.
+
+```dart
+import 'package:core/core.dart';
+
+class Post {
+  final String title;
+  final DateTime? updatedAt;
+
+  const Post({required this.title, this.updatedAt});
+
+  // ❌ BAD — copyWith(updatedAt: null) keeps the old value
+  Post copyWith({String? title, DateTime? updatedAt}) => Post(
+    title: title ?? this.title,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+
+  // ✅ GOOD
+  Post copyWith({String? title, CWValue<DateTime>? updatedAt}) => Post(
+    title: title ?? this.title,
+    updatedAt: CWValue.resolve(updatedAt, this.updatedAt),
+  );
+}
+
+post.copyWith(title: 'Next');
+post.copyWith(updatedAt: CWValue(time));
+post.copyWith(updatedAt: const CWValue(null));
+```
+
+Notes:
+
+- Omit the `CWValue` argument to keep the current value. Pass `CWValue(null)` to clear it.
+- Do not wrap non-nullable fields.
+- Leave generated `copyWith` methods alone (json_serializable, Freezed, Flutter `TextStyle.copyWith`).
