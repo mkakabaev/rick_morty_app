@@ -6,7 +6,18 @@ https://github.com/user-attachments/assets/386b2efb-de33-4c80-89cc-e4789ebbbe3f
 
 ## What it demonstrates
 
-**Feature-first Clean Architecture (FFCA) without feature packages.** Features live as folders under `mobile/app/lib/features/` with selective barrels (`foo.dart` / `foo_ui.dart`). Repositories stay private to the feature; other modules depend on entities and use cases only. There is no Dart workspace and no one-package-per-feature split — only a small path-dependent `core` kernel.
+**Feature-first Clean Architecture (FFCA) without feature packages.** Same module rules as a multi-package FFCA app (public API = entities + use cases; repositories private; cross-feature code depends on use cases, never another feature’s repository) — different packaging.
+
+| | This app (folders) | Multi-package FFCA |
+|---|---|---|
+| Feature boundary | Folders under `mobile/app/lib/features/` + selective barrels (`foo.dart` / `foo_ui.dart`) | One pub package per feature under `mobile/packages/features/` |
+| Enforcement | Convention and barrel exports | Pub package resolution (`resolution: workspace`) — illegal imports fail at resolve |
+| Workspace | No Dart workspace; app is one package | Pub workspace: app + shared kits + every feature package |
+| Shared kits | Mostly inside the app (`lib/ui/`, `lib/services/`, …); only a small path-dependent `core` kernel | Separate shared packages outside the app |
+| Feature DI | App composition root registers everything | Each feature ships a `di/` injectable micro-package; app links modules |
+| Cost | Fewer packages and less pub/DI wiring | Stronger isolation; more ceremony |
+
+This sample is small enough that the folder layout keeps the CA shape without a workspace, per-feature packages, or kit/DI micro-package wiring. Multi-package FFCA pays that cost for hard boundaries and reusable kits; here the tradeoff favors a single app package. Details and the review checklist: [Clean Architecture](mobile/app/docs/clean-architecture.md).
 
 **Screen state: `PageBloc` + page widget + `PageHost`.** Each screen is a `PageState` that owns a page-scoped `PageBloc` (Cubit). The page builds from bloc state; the bloc talks to the UI through `PageHost` (snackbars / host-level errors) instead of reaching into widgets.
 
